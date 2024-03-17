@@ -40,7 +40,6 @@ const config = {
       globals: {
         react: "React",
         "react-dom": "ReactDOM",
-        axios: "Axios",
       },
       plugins: [terser()],
     },
@@ -56,7 +55,7 @@ const config = {
     typescript({ tsconfigOverride: overrides }),
     sass({ output: "dist/index.css" }),
   ],
-  external: ["react", "react-dom", "axios"],
+  external: ["react", "react-dom"],
 };
 
 export default config;

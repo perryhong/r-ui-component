@@ -32,7 +32,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   const { className, btnType, size, disabled, href, children, ...restProps } =
     props;
 
-  const classes = classNames("btn", {
+  const classes = classNames("btn", className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
     disabled: btnType === "link" && disabled,
