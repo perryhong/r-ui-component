@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install --unsafe-perms
       - name: 发布组件
-      - run: npm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: 构建storybook
