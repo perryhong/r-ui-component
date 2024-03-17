@@ -29,7 +29,7 @@ describe("test button component", () => {
   });
   it("should render the correct component base on different props", async () => {
     render(<Button {...testProps}>Nice</Button>);
-    const element = await screen.findByText("Nicec");
+    const element = await screen.findByText("Nice");
     expect(element).toBeInTheDocument();
     expect(element).toHaveClass("btn-primary", "btn-lg", "testClass");
   });
