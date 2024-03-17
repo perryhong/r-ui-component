@@ -43,11 +43,6 @@
     "build-storybook": "storybook build",
     "prepublishOnly": "yarn test:nowatch && yarn lint && yarn build"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn test:nowatch && yarn lint"
-    }
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -89,7 +84,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.10.0",
     "eslint-plugin-storybook": "^0.8.0",
-    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "node-sass": "^9.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

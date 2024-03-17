@@ -1,6 +1,6 @@
 ## R-EC-COMPONENT component library
 
-### 安装最后已经发布的组件库来试试
+### 安装组件库
 
 ```javascript
 npm install r-ec-component --save
