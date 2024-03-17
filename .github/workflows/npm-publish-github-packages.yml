@@ -5,8 +5,8 @@ name: Node.js Package
 
 on:
   push:
-     branches:
-       - "releases/**"
+    branches:
+      - "release"
 
 jobs:
   publish-gpr:
