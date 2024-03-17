@@ -22,7 +22,7 @@ jobs:
           # 默认配置
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
-        run: npm install
+        run: npm install --unsafe-perms
       - name: 发布组件
       - run: npm publish
         env:
