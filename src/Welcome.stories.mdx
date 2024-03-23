@@ -1,26 +1,101 @@
-import { Meta, code } from "@storybook/blocks";
+import { Meta, code, Introduction } from "@storybook/blocks";
+import Button from "./components/Button";
+import pkg from "../package.json";
 
-<Meta title="Welcome" />
+<Meta
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+  title="Welcome"
+/>
 
-<div className="sb-container">
-  <h1 className="sb-section-title">欢迎来到 @pekings/r-ui-component 组件库</h1>
-  <div className="sb-section">
-    <h3>安装试试</h3>
-    <code>`npm install @pekings/r-ui-component --save`</code>
+<div className="sb-introduction">
+  <img className="sb-img" src="images/logo.jpg" />
+  <div className="github-info">
+    <Button
+      className="github-btn"
+      btnType="link"
+      href="https://github.com/perryhong/r-ui-component"
+    >
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+          fill="currentColor"
+          d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56C20.565 21.917 24 17.495 24 12.292 24 5.78 18.627.5 12 .5z"
+        />
+      </svg>
+    </Button>
+    <h3 className="version">{`Version ${pkg.version}`}</h3>
   </div>
 </div>
 
+## Introduction
+
+欢迎来到 @pekings/r-ui-component 组件库
+
+<br />
+
+## Getting Start
+
+开始使用
+
+<br />
+
+### Install
+
+Using `npm` to install
+
+```bash
+npm install @pekings/r-ui-component --save
+```
+
+Using `yarn` to install
+
+```bash
+yarn add @pekings/r-ui-component
+```
+
+### Import
+
+```js
+// 全局引入样式
+import "@pekings/r-ui-component/dist/index.css";
+// 引入组件
+import { Button } from "@pekings/r-ui-component";
+```
+
 <style>
   {`
-    .sb-section {
+    .sb-introduction {
       width: 100%;
       display: flex;
-      flex-direction: row;
-      gap: 20px;
+      justify-content: space-between;
+      margin-bottom: 30px;
     }
 
-    .sb-section-title {
-      margin-bottom: 32px;
+    .github-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .github-info .version {
+      font-size: 16px;
+      margin-bottom: 0px;
+      margin-left: 10px;
+      color: #0d6efd;
+    }
+
+    .sb-img {
+      width: 88px;
+      height: 88px;
+      border-radius: 10px;
+    }
+
+    .github-btn {
+      width: 40px;
+      height: 40px;
     }
   `}
 </style>

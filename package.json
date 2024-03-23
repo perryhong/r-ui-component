@@ -2,6 +2,10 @@
   "name": "@pekings/r-ui-component",
   "version": "0.2.1",
   "description": "React UI components library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/perryhong/r-ui-component"
+  },
   "author": "PEIQIN HONG",
   "private": false,
   "main": "dist/index.min.js",
