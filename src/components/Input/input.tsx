@@ -27,7 +27,7 @@ export interface InputProps
  *
  * ~~~js
  * // 这样引用
- * import { Input } from 'r-ui-component'
+ * import { Input } from '@pekings/r-ui-component'
  * ~~~
  * 支持 HTMLInput 的所有基本属性
  */

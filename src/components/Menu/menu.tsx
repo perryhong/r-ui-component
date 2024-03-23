@@ -35,7 +35,7 @@ export const MenuContext = createContext<IMenuContext>({ index: "0" });
  *
  * ~~~js
  * // 这样引用
- * import { Menu } from 'r-ui-component'
+ * import { Menu } from '@pekings/r-ui-component'
  * const { MenuItem, SubMenu } = Menu
  * ~~~
  * 支持横向和竖向两种模式

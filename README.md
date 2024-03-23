@@ -1,18 +1,18 @@
-## R-UI-COMPONENT component library
+## react ui component library
 
 ### 安装组件库
 
 ```javascript
-npm install r-ui-component --save
+npm install @pekings/r-ui-component --save
 ```
 
 ### 使用
 
 ```javascript
 // 加载样式
-import "r-ui-component/dist/index.css";
+import "@pekings/r-ui-component/dist/index.css";
 // 引入组件
-import { Button } from "r-ui-component";
+import { Button } from "@pekings/r-ui-component";
 ```
 
 ### 一些本地开发命令
