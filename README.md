@@ -1,32 +1,28 @@
 ## react ui component library
 
-### 安装组件库
+### Install
 
-```javascript
+Using `npm` to install
+
+```bash
 npm install @pekings/r-ui-component --save
 ```
 
-### 使用
+Using `yarn` to install
 
-```javascript
-// 加载样式
+```bash
+yarn add @pekings/r-ui-component
+```
+
+### Quickstart
+
+```js
+// 全局引入样式
 import "@pekings/r-ui-component/dist/index.css";
 // 引入组件
 import { Button } from "@pekings/r-ui-component";
 ```
 
-### 一些本地开发命令
+## Links
 
-```bash
-//启动本地环境
-yarn storybook
-
-//跑单元测试
-yarn test
-
-//build可发布静态文件
-yarn build
-
-//发布到 npm
-yarn publish
-```
+- [Documentation](https://perryhong.github.io/r-ui-component)
