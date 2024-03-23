@@ -2,11 +2,9 @@ import { Meta, code } from "@storybook/blocks";
 
 <Meta title="Welcome" />
 
-<div className="r-ui-container">
-  <h1 className="r-ui-section-title">
-    欢迎来到 @pekings/r-ui-component 组件库
-  </h1>
-  <div className="r-ui-section">
+<div className="sb-container">
+  <h1 className="sb-section-title">欢迎来到 @pekings/r-ui-component 组件库</h1>
+  <div className="sb-section">
     <h3>安装试试</h3>
     <code>`npm install @pekings/r-ui-component --save`</code>
   </div>
@@ -14,14 +12,14 @@ import { Meta, code } from "@storybook/blocks";
 
 <style>
   {`
-    .r-ui-section {
+    .sb-section {
       width: 100%;
       display: flex;
       flex-direction: row;
       gap: 20px;
     }
 
-    .r-ui-section-title {
+    .sb-section-title {
       margin-bottom: 32px;
     }
   `}
