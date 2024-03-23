@@ -1,6 +1,6 @@
 {
-  "name": "r-ui-component",
-  "version": "0.2.0",
+  "name": "@pekings/r-ui-component",
+  "version": "0.2.1",
   "description": "React UI components library",
   "author": "PEIQIN HONG",
   "private": false,
