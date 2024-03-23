@@ -1,7 +1,7 @@
 {
-  "name": "r-ec-component",
+  "name": "r-ui-component",
   "version": "0.2.0",
-  "description": "React ecommerce components library",
+  "description": "React UI components library",
   "author": "PEIQIN HONG",
   "private": false,
   "main": "dist/index.min.js",
@@ -23,7 +23,8 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "classnames": "^2.5.1"
+    "classnames": "^2.5.1",
+    "react-transition-group": "^4.4.5"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -67,6 +68,7 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.5",
+    "@rollup/plugin-terser": "^0.4.4",
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/addon-interactions": "^7.6.17",
     "@storybook/addon-links": "^7.6.17",
@@ -81,6 +83,7 @@
     "@types/node": "^16.18.82",
     "@types/react": "^18.2.57",
     "@types/react-dom": "^18.2.19",
+    "@types/react-transition-group": "^4.4.10",
     "cross-env": "^7.0.3",
     "css-loader": "^6.10.0",
     "eslint-plugin-storybook": "^0.8.0",
@@ -94,7 +97,6 @@
     "rollup": "^4.12.0",
     "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.23",
     "rollup-plugin-sass": "^1.12.21",
-    "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.36.0",
     "storybook": "^7.6.17",
     "style-loader": "^3.3.4",

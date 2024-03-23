@@ -1,18 +1,18 @@
-## R-EC-COMPONENT component library
+## R-UI-COMPONENT component library
 
 ### 安装组件库
 
 ```javascript
-npm install r-ec-component --save
+npm install r-ui-component --save
 ```
 
 ### 使用
 
 ```javascript
 // 加载样式
-import "r-ec-component/dist/index.css";
+import "r-ui-component/dist/index.css";
 // 引入组件
-import { Button } from "r-ec-component";
+import { Button } from "r-ui-component";
 ```
 
 ### 一些本地开发命令

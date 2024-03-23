@@ -13,13 +13,11 @@ const disabledProps: InputProps = {
 };
 
 const largeSizeProps: InputProps = {
-  datatestid: "lg-input",
   placeholder: "lg-size-input",
   size: "lg",
 };
 
 const prependAppendProps: InputProps = {
-  datatestid: "input-with-prepend",
   placeholder: "input-with-prepend",
   prepend: "https://",
   append: ".com",
@@ -47,17 +45,21 @@ describe("test input componnet", () => {
     expect(element).toBeInTheDocument();
     expect(element.disabled).toBeTruthy();
   });
+});
 
+describe("test input size", () => {
   it("should render different input sizes on size property", async () => {
     render(<Input {...largeSizeProps} />);
-    const element = await screen.findByTestId("lg-input");
+    const element = await screen.findByTestId("rec-input");
     expect(element).toBeInTheDocument();
     expect(element).toHaveClass("input-size-lg");
   });
+});
 
+describe("test input with prepand/append", () => {
   it("should render prepand and append element on prepand/append property", async () => {
     render(<Input {...prependAppendProps} />);
-    const element = await screen.findByTestId("input-with-prepend");
+    const element = await screen.findByTestId("rec-input");
     expect(element).toBeInTheDocument();
     expect(element).toHaveClass(
       "input-group input-group-prepend input-group-append"
