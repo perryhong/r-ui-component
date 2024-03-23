@@ -4,7 +4,7 @@ import commmonJs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
 import sass from "rollup-plugin-sass";
 // import excludeDependencies from "rollup-plugin-exclude-dependencies-from-bundle";
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
 import replace from "@rollup/plugin-replace";
 
 const overrides = {

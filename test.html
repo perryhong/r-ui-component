@@ -17,7 +17,32 @@
   const root = ReactDOM.createRoot(domContainer)
   root.render(React.createElement('div', {children: [
     React.createElement(RecComponent.Button, {}, 'Nice'),
-    React.createElement(RecComponent.Input)
+    React.createElement(RecComponent.Input, {icon: 'search'}),
+    React.createElement(RecComponent.Menu, {children: [
+      React.createElement(RecComponent.Menu.MenuItem, {}, 'link1'),
+      React.createElement(RecComponent.Menu.MenuItem, {disabled: true}, 'link2'),
+      React.createElement(RecComponent.Menu.SubMenu, {
+        title: 'submenu',
+        children: [
+          React.createElement(RecComponent.Menu.MenuItem, {}, 'subLink1'),
+          React.createElement(RecComponent.Menu.MenuItem, {}, 'subLink2'),
+        ]
+      }),
+      React.createElement(RecComponent.Menu.MenuItem, {}, 'link3'),
+    ]}),
+
+    React.createElement(RecComponent.Menu, {children: [
+      React.createElement(RecComponent.Menu.MenuItem, {}, 'link1'),
+      React.createElement(RecComponent.Menu.MenuItem, {disabled: true}, 'link2'),
+      React.createElement(RecComponent.Menu.SubMenu, {
+        title: 'submenu',
+        children: [
+          React.createElement(RecComponent.Menu.MenuItem, {}, 'subLink1'),
+          React.createElement(RecComponent.Menu.MenuItem, {}, 'subLink2'),
+        ]
+      }),
+      React.createElement(RecComponent.Menu.MenuItem, {}, 'link3'),
+    ], mode: 'vertical'})
   ]}))
 </script>
 </html>
