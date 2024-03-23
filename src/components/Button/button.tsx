@@ -25,7 +25,7 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
  * 页面中最常用的的按钮元素
  * ### 引用方法
  * ~~~js
- * import { Button } from 'r-ui-component'
+ * import { Button } from '@pekings/r-ui-component'
  * ~~~
  */
 export const Button: React.FC<ButtonProps> = (props) => {
