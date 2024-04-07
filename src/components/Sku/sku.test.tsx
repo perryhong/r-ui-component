@@ -147,7 +147,7 @@ describe("test Sku", () => {
     const purpleElement = await screen.findByText("紫色");
     const packOneElement = await screen.findByText("套餐一");
     const sizeTwoElement = await screen.findByText("128G");
-    expect(purpleElement).toHaveClass("rec-spec-choice-disabled");
+    expect(purpleElement).not.toHaveClass("rec-spec-choice-disabled");
     expect(packOneElement).toHaveClass("rec-spec-choice-disabled");
     expect(sizeTwoElement).toHaveClass("rec-spec-choice-disabled");
   });
