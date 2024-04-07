@@ -17,9 +17,25 @@ export type SpecCombinationItem = {
 };
 
 export interface SkuProps {
+  /** Sku组件最外层的样式Class */
   className?: string;
+  /** Sku属性块的样式Class */
+  specClassName?: string;
+  /** Sku属性名的样式Class,如颜色、尺寸 */
+  specTitleClassName?: string;
+  /** Sku属性值列表外层块的样式Class */
+  specRowClassName?: string;
+  /** Sku属性值选中的样式Class */
+  selectedClassName?: string;
+  /** Sku属性值未选中的样式Class */
+  unSelectedClassName?: string;
+  /** Sku属性值禁止选中的样式Class */
+  disabledClassName?: string;
+  /** Sku属性值列表 */
   specList: SpecItem[];
+  /** 所有可选Sku组合列表 */
   specCombinationList: SpecCombinationItem[];
+  /** 选出一个Sku组合后的回调 */
   onSkuSelected: (val: SpecCombinationItem) => void;
 }
 
@@ -34,7 +50,18 @@ type SpecsItem = SpecValueItem | null;
  * ~~~
  */
 export const Sku: React.FC<SkuProps> = (props) => {
-  const { className, specList, specCombinationList, onSkuSelected } = props;
+  const {
+    className,
+    specClassName,
+    specTitleClassName,
+    specRowClassName,
+    selectedClassName,
+    unSelectedClassName,
+    disabledClassName,
+    specList,
+    specCombinationList,
+    onSkuSelected,
+  } = props;
 
   const [specsArr, setSpecsArr] = useState<SpecsItem[]>([]);
   const [adjoinArr, setAdjoinArr] = useState<(number | number[])[]>([]);
@@ -97,9 +124,12 @@ export const Sku: React.FC<SkuProps> = (props) => {
       }
     }
     const col: (number | number[])[] = [];
+    console.log(adjoinArr);
     vertex.forEach((item, pIndex) => {
+      console.log(idx + len * pIndex);
       col.push(adjoinArr[idx + len * pIndex]);
     });
+    console.log(col);
     return col;
   };
 
@@ -151,7 +181,7 @@ export const Sku: React.FC<SkuProps> = (props) => {
   };
 
   const getIntersection = (params: SpecValueItem[]) => {
-    const paramsVertex = params.map((id) => getVertexCol(id));
+    const paramsVertex = params.map((param) => getVertexCol(param));
     const intersection: SpecValueItem[] = [];
     vertex.forEach((type, index) => {
       const row = paramsVertex.map((col) => col[index]).filter((t) => t !== 1);
@@ -181,12 +211,12 @@ export const Sku: React.FC<SkuProps> = (props) => {
     );
   };
 
-  const initSameLevel = () => {
+  const initSameLevel = (options: SpecValueItem[]) => {
     specList.forEach((item) => {
       const params: SpecValueItem[] = [];
       // 获取同级别顶点
       item.list.forEach((val) => {
-        if (optionSpecs.includes(val)) params.push(val);
+        if (options.find((item) => item.id === val.id)) params.push(val);
       });
       // 同级点位创建
       fillInSpec(params, 1);
@@ -203,18 +233,55 @@ export const Sku: React.FC<SkuProps> = (props) => {
 
   const getSpecChoiceClasses = (item: SpecValueItem) => {
     return classNames("rec-spec-choice", {
-      "rec-spec-choice-active": isActive(item),
-      "rec-spec-choice-disabled": !isOptions(item),
+      ...(selectedClassName
+        ? { [selectedClassName]: isActive(item) }
+        : { "rec-spec-choice-active": isActive(item) }),
+      ...(unSelectedClassName
+        ? { [unSelectedClassName]: !isActive(item) }
+        : { "rec-spec-choice-unactive": !isActive(item) }),
+      ...(disabledClassName
+        ? { [disabledClassName]: !isOptions(item) }
+        : { "rec-spec-choice-disabled": !isOptions(item) }),
     });
   };
 
   const init = () => {
     const adjoin = new Array(len * len).fill(0);
     const specs = new Array(specList.length).fill(null);
+    const options = handleSpecsArrChange(specs);
     setAdjoinArr(adjoin);
     setSpecsArr(specs);
     initSpec();
-    initSameLevel();
+    initSameLevel(options);
+  };
+
+  const handleSpecsArrChange = (arr: SpecsItem[]) => {
+    const newOptionSpecs = getSpecOptions(arr);
+    setOptionSpecs(newOptionSpecs);
+    if (arr.every(Boolean) && arr.length === specList.length) {
+      for (let i = 0; i < specCombinationList.length; i += 1) {
+        const specComb = specCombinationList[i];
+        const combSpecMap: { [key: string]: number } = {};
+        specComb.specs.forEach(
+          (item: SpecValueItem) => (combSpecMap[`${item.value}-${item.id}`] = 1)
+        );
+
+        let flag = true;
+        for (let j = 0; j < arr.length; j += 1) {
+          const item = arr[j];
+          const specMapKey = `${item?.value}-${item?.id}`;
+          if (!combSpecMap[specMapKey]) {
+            flag = false;
+            break;
+          }
+        }
+        if (flag) {
+          onSkuSelected(specComb);
+          break;
+        }
+      }
+    }
+    return newOptionSpecs;
   };
 
   const handleSpecChoiceClick = (
@@ -229,58 +296,34 @@ export const Sku: React.FC<SkuProps> = (props) => {
       setSpecsArr((arr) => {
         const newArr = [...arr];
         newArr[idx] = item;
+        handleSpecsArrChange(newArr);
         return newArr;
       });
     } else {
       setSpecsArr((arr) => {
         const newArr = [...arr];
         newArr[idx] = newArr[idx]?.id === item.id ? null : item;
+        handleSpecsArrChange(newArr);
         return newArr;
       });
     }
   };
 
   useEffect(() => {
-    const newOptionSpecs = getSpecOptions(specsArr);
-    setOptionSpecs(newOptionSpecs);
-    if (specsArr.every(Boolean) && specsArr.length === specList.length) {
-      for (let i = 0; i < specCombinationList.length; i += 1) {
-        const specComb = specCombinationList[i];
-        const combSpecMap: { [key: string]: number } = {};
-        specComb.specs.forEach(
-          (item: SpecValueItem) => (combSpecMap[`${item.value}-${item.id}`] = 1)
-        );
-
-        let flag = true;
-        for (let j = 0; j < specsArr.length; j += 1) {
-          const item = specsArr[j];
-          const specMapKey = `${item?.value}-${item?.id}`;
-          if (!combSpecMap[specMapKey]) {
-            flag = false;
-            break;
-          }
-        }
-        if (flag) {
-          onSkuSelected(specComb);
-          break;
-        }
-      }
-    }
-  }, [specsArr, specCombinationList, specList]);
-
-  useEffect(() => {
     init();
   }, []);
 
   const classes = classNames("rec-sku-container", className);
+  const specBlockClasses = classNames("rec-spec-block", specClassName);
+  const specTitleClasses = classNames("rec-spec-title", specTitleClassName);
 
   return (
     <div data-testid="rec-sku" className={classes}>
       {specList.map((item, idx) => {
         return (
-          <div className="rec-spec-block" key={item.title}>
-            <p className="rec-spec-title">{item.title}</p>
-            <div className="rec-spec-row">
+          <div className={specBlockClasses} key={item.title}>
+            <p className={specTitleClasses}>{item.title}</p>
+            <div className={specRowClassName}>
               {item.list.map((specItem) => (
                 <span
                   className={getSpecChoiceClasses(specItem)}
