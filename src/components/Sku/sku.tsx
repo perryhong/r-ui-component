@@ -124,12 +124,10 @@ export const Sku: React.FC<SkuProps> = (props) => {
       }
     }
     const col: (number | number[])[] = [];
-    console.log(adjoinArr);
     vertex.forEach((item, pIndex) => {
-      console.log(idx + len * pIndex);
       col.push(adjoinArr[idx + len * pIndex]);
     });
-    console.log(col);
+
     return col;
   };
 
