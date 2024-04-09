@@ -45,7 +45,7 @@ export type LazyLoadImageProps = ImgHTMLAttributes<HTMLElement> &
     )
   }
  * ~~~
- * ### 图片较多时基础用法会卡顿，可采用下面的高阶用法
+ * ### 图片较多时基础用法在非IntersectionObserver模式下会卡顿，可采用下面的高阶用法
  * ~~~js
   import { LazyLoadImage } from '@pekings/r-ui-component'
   const { trackWindowScroll } = LazyLoadImage
