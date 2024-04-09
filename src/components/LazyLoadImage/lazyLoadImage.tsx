@@ -27,8 +27,7 @@ export type LazyLoadImageProps = ImgHTMLAttributes<HTMLElement> &
  * 图片懒加载组件
  * ### 基础用法
  * ~~~js
-  import { LazyLoad } from '@pekings/r-ui-component'
-  const { LazyLoadImage } = LazyLoad
+  import { LazyLoadImage } from '@pekings/r-ui-component'
 
   const LazyImagesFC = () => {
     return (
@@ -48,8 +47,8 @@ export type LazyLoadImageProps = ImgHTMLAttributes<HTMLElement> &
  * ~~~
  * ### 图片较多时基础用法会卡顿，可采用下面的高阶用法
  * ~~~js
-  import { LazyLoad } from '@pekings/r-ui-component'
-  const { LazyLoadImage, trackWindowScroll } = LazyLoad
+  import { LazyLoadImage } from '@pekings/r-ui-component'
+  const { trackWindowScroll } = LazyLoadImage
 
   const LazyImagesFC = ({ scrollPosition }) => {
     return (
