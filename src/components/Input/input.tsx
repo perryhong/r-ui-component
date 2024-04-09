@@ -7,7 +7,6 @@ type InputSize = "lg" | "sm";
 
 export interface InputProps
   extends Omit<InputHTMLAttributes<HTMLElement>, "size"> {
-  datatestid?: string;
   /** 是否禁用Input */
   disabled?: boolean;
   /** 设置Input大小，支持lg或者是sm */
