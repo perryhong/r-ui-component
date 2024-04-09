@@ -1,0 +1,40 @@
+.img-list {
+  margin: 0 auto;
+  max-width: 1034px;
+  overflow: auto;
+
+  &.with-overflow {
+    max-height: 500px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &.horizontal {
+    max-width: none;
+    white-space: nowrap;
+
+    &.with-overflow {
+      max-height: none;
+      max-width: 990px;
+      overflow-x: scroll;
+      overflow-y: auto;
+    }
+
+    .img-wrapper {
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+  }
+
+  &:not(.horizontal) {
+    .img-wrapper {
+      float: left;
+      margin-bottom: 10px;
+    }
+    
+    .img-wrapper:nth-child(2n) {
+      margin-left: 10px;
+    }
+  }
+}
+
