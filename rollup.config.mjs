@@ -24,10 +24,6 @@ const config = {
   input: "src/index.tsx",
   output: [
     {
-      file: "dist/index.es.js",
-      format: "es",
-    },
-    {
       file: "dist/index.min.js",
       format: "es",
       plugins: [terser()],
