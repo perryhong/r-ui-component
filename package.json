@@ -43,7 +43,7 @@
     "build": "npm run clean && npm run build-es && npm run build-css",
     "build-es": "rollup --config rollup.config.mjs",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
-    "test": "react-scripts test --debug",
+    "test": "react-scripts test",
     "test:nowatch": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
