@@ -9,3 +9,4 @@ export { default as Menu } from "./components/Menu";
 export { default as Transition } from "./components/Transition";
 export { default as Sku } from "./components/Sku";
 export { default as LazyLoadImage } from "./components/LazyLoadImage";
+export { default as VerificationCodeBox } from "./components/VerificationCodeBox";

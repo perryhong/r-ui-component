@@ -1,6 +1,6 @@
 {
   "name": "@pekings/r-ui-component",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "React UI components library",
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@pekings/verification-code": "^0.0.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -42,19 +43,27 @@
     "build": "npm run clean && npm run build-es && npm run build-css",
     "build-es": "rollup --config rollup.config.mjs",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
-    "test": "react-scripts test",
+    "test": "react-scripts test --debug",
     "test:nowatch": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build"
   },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!@pekings/verification-code)"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest",
       "plugin:storybook/recommended"
-    ]
+    ],
+    "rules": {
+      "react-hooks/exhaustive-deps": 0
+    }
   },
   "browserslist": {
     "production": [
@@ -69,6 +78,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.24.1",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
@@ -90,6 +100,8 @@
     "@types/react": "^18.2.57",
     "@types/react-dom": "^18.2.19",
     "@types/react-transition-group": "^4.4.10",
+    "babel-jest": "^29.7.0",
+    "canvas": "^2.11.2",
     "cross-env": "^7.0.3",
     "css-loader": "^6.10.0",
     "eslint-plugin-storybook": "^0.8.0",
@@ -106,6 +118,7 @@
     "rollup-plugin-typescript2": "^0.36.0",
     "storybook": "^7.6.17",
     "style-loader": "^3.3.4",
+    "ts-jest": "^29.1.2",
     "typescript": "^4.9.5",
     "webpack": "^5.90.3"
   }
