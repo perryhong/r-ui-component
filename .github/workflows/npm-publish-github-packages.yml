@@ -22,7 +22,7 @@ jobs:
           # 默认配置
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
-        run: npm install --force --unsafe-perms
+        run: npm install
       - name: 构建storybook
         run: npm run build-storybook
       - name: 发布文档页到githubpage

@@ -41,7 +41,6 @@ export const trackWindowScroll = (
         x: getScrollX(),
         y: getScrollY(),
       };
-      console.log(newScrollPosition);
       setScrollPosition(newScrollPosition);
     };
 
