@@ -161,6 +161,12 @@
       onSkuSelected: (item) => {
         console.log(item);
       }
+    }),
+    React.createElement(RecComponent.VerificationCodeBox, {
+      id: 'my-vcode',
+      onCodeRecieve: (code) => {
+        console.log(code)
+      }
     })
   ]}))
 </script>

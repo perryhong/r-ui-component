@@ -100,6 +100,12 @@ NoObserverLazyImage.args = {
   useIntersectionObserver: false,
 };
 
+NoObserverLazyImage.parameters = {
+  transformSource(src: string) {
+    console.log(src);
+  },
+};
+
 export const ObserverLazyImage: StoryFn<LazyLoadImageProps> = (props) => {
   const Tracked = trackWindowScroll(LazyImageFC);
   return <Tracked {...props} />;
