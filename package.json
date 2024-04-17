@@ -1,6 +1,6 @@
 {
   "name": "@pekings/r-ui-component",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "React UI components library",
   "repository": {
     "type": "git",
@@ -78,7 +78,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.24.1",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
